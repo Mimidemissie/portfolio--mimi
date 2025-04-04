@@ -238,59 +238,71 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+/* Hero Section */
 #hero {
-  /* width: 100%;
-  height: 100vh;
-  background: url("../img/") top center;
-  background-size: cover; */
-
   width: 100%;
-  height: 100vh; /* Full viewport height, adjust as necessary */
-  background: url("../img/WhatsApp-Image.jpg") no-repeat center center; /* Path to your uploaded image */
-  background-size: cover; /* Ensure the image covers the entire section */
+  height: 100vh;
+  background: url("../img/WhatsApp-Image\ 2.jpg") no-repeat center center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white; /* Optional, adjust text color based on your preference */
+  position: relative;
+  color: white;
   text-align: center;
-}
-#hero h1 {
-  font-size: 3rem;
+  overflow: hidden; /* For smooth animations */
 }
 
-#hero p {
-  font-size: 1.2rem;
-}
 #hero:before {
   content: "";
-  background: rgba(5, 13, 24, 0.3);
+  background: rgba(
+    5,
+    13,
+    24,
+    0.5
+  ); /* Darker overlay for better text contrast */
   position: absolute;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
+  transition: background 0.5s ease; /* Smooth background color transition */
+}
+
+#hero:hover:before {
+  background: rgba(
+    5,
+    13,
+    24,
+    0.7
+  ); /* Darker overlay on hover for interaction */
 }
 
 #hero .hero-container {
   position: relative;
   z-index: 2;
-  min-width: 300px;
+  max-width: 800px;
+  padding: 20px;
+  animation: fadeIn 2s ease-in-out; /* Add animation */
 }
 
 #hero h1 {
   margin: 0 0 10px 0;
-  /* font-size: 64px; */
+  font-size: 3.5rem;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 1.2;
   color: #fff;
+  text-transform: uppercase; /* For a bold design */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Add a subtle text shadow */
 }
 
 #hero p {
-  color: #fff;
+  color: #ddd;
   margin-bottom: 30px;
-  /* font-size: 26px; */
+  font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
+  line-height: 1.6;
 }
 
 #hero p span {
@@ -298,6 +310,25 @@ h6 {
   padding-bottom: 4px;
   letter-spacing: 1px;
   border-bottom: 3px solid #149ddd;
+  font-weight: 600;
+  transition: color 0.3s ease, border-color 0.3s ease; /* Smooth color transition */
+}
+
+#hero p span:hover {
+  color: #149ddd; /* Change text color on hover */
+  border-color: #fff; /* Invert border color on hover */
+}
+
+/* Animation for text fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 1024px) {
